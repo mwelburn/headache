@@ -8,7 +8,7 @@ end
 
 Factory.define(:headache) do |h|
   h.user_id 1
-  h.onset_date DateTime.new
+  h.onset_time DateTime.new
   
   h.intensity 7
 end

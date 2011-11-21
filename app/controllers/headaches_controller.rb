@@ -75,7 +75,7 @@ class HeadachesController < ApplicationController
   # PUT /headaches/1
   # PUT /headaches/1.json
   def update
-    @headach = Headache.find(params[:id])
+    @headache = Headache.find(params[:id])
 
     if @headache.nil?
       #TODO - bad id
