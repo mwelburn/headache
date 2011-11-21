@@ -1,0 +1,53 @@
+<h1>Listing headaches</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Created at</th>
+    <th>Updated at</th>
+    <th>Onset time</th>
+    <th>Length</th>
+    <th>Cause</th>
+    <th>Existing illness</th>
+    <th>Intensity</th>
+    <th>Location</th>
+    <th>Course</th>
+    <th>Mitigating factors</th>
+    <th>Quality</th>
+    <th>Associated symptoms</th>
+    <th>Treatment</th>
+    <th>Similar episodes</th>
+    <th>Notes</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @headaches.each do |headach| %>
+  <tr>
+    <td><%= headach.user_id %></td>
+    <td><%= headach.created_at %></td>
+    <td><%= headach.updated_at %></td>
+    <td><%= headach.onset_time %></td>
+    <td><%= headach.length %></td>
+    <td><%= headach.cause %></td>
+    <td><%= headach.existing_illness %></td>
+    <td><%= headach.intensity %></td>
+    <td><%= headach.location %></td>
+    <td><%= headach.course %></td>
+    <td><%= headach.mitigating_factors %></td>
+    <td><%= headach.quality %></td>
+    <td><%= headach.associated_symptoms %></td>
+    <td><%= headach.treatment %></td>
+    <td><%= headach.similar_episodes %></td>
+    <td><%= headach.notes %></td>
+    <td><%= link_to 'Show', headach %></td>
+    <td><%= link_to 'Edit', edit_headach_path(headach) %></td>
+    <td><%= link_to 'Destroy', headach, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Headache', new_headach_path %>

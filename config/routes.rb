@@ -1,8 +1,9 @@
-Headache::Application.routes.draw do
+HeadacheTracker::Application.routes.draw do
   devise_for :users
 
   root :to => 'home#index'
   resources :users, :only => :show
+  resources :headaches, :except => :index
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

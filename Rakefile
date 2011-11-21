@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Headache::Application.load_tasks
+HeadacheTracker::Application.load_tasks

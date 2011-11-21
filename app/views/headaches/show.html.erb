@@ -1,0 +1,85 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @headach.user_id %>
+</p>
+
+<p>
+  <b>Created at:</b>
+  <%= @headach.created_at %>
+</p>
+
+<p>
+  <b>Updated at:</b>
+  <%= @headach.updated_at %>
+</p>
+
+<p>
+  <b>Onset time:</b>
+  <%= @headach.onset_time %>
+</p>
+
+<p>
+  <b>Length:</b>
+  <%= @headach.length %>
+</p>
+
+<p>
+  <b>Cause:</b>
+  <%= @headach.cause %>
+</p>
+
+<p>
+  <b>Existing illness:</b>
+  <%= @headach.existing_illness %>
+</p>
+
+<p>
+  <b>Intensity:</b>
+  <%= @headach.intensity %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @headach.location %>
+</p>
+
+<p>
+  <b>Course:</b>
+  <%= @headach.course %>
+</p>
+
+<p>
+  <b>Mitigating factors:</b>
+  <%= @headach.mitigating_factors %>
+</p>
+
+<p>
+  <b>Quality:</b>
+  <%= @headach.quality %>
+</p>
+
+<p>
+  <b>Associated symptoms:</b>
+  <%= @headach.associated_symptoms %>
+</p>
+
+<p>
+  <b>Treatment:</b>
+  <%= @headach.treatment %>
+</p>
+
+<p>
+  <b>Similar episodes:</b>
+  <%= @headach.similar_episodes %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @headach.notes %>
+</p>
+
+
+<%= link_to 'Edit', edit_headach_path(@headach) %> |
+<%= link_to 'Back', headaches_path %>

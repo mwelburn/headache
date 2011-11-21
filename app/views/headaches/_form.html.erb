@@ -1,0 +1,81 @@
+<%= form_for(@headach) do |f| %>
+  <% if @headach.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@headach.errors.count, "error") %> prohibited this headach from being saved:</h2>
+
+      <ul>
+      <% @headach.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :created_at %><br />
+    <%= f.datetime_select :created_at %>
+  </div>
+  <div class="field">
+    <%= f.label :updated_at %><br />
+    <%= f.datetime_select :updated_at %>
+  </div>
+  <div class="field">
+    <%= f.label :onset_time %><br />
+    <%= f.datetime_select :onset_time %>
+  </div>
+  <div class="field">
+    <%= f.label :length %><br />
+    <%= f.time_select :length %>
+  </div>
+  <div class="field">
+    <%= f.label :cause %><br />
+    <%= f.text_field :cause %>
+  </div>
+  <div class="field">
+    <%= f.label :existing_illness %><br />
+    <%= f.text_field :existing_illness %>
+  </div>
+  <div class="field">
+    <%= f.label :intensity %><br />
+    <%= f.number_field :intensity %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br />
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :course %><br />
+    <%= f.text_field :course %>
+  </div>
+  <div class="field">
+    <%= f.label :mitigating_factors %><br />
+    <%= f.text_field :mitigating_factors %>
+  </div>
+  <div class="field">
+    <%= f.label :quality %><br />
+    <%= f.text_field :quality %>
+  </div>
+  <div class="field">
+    <%= f.label :associated_symptoms %><br />
+    <%= f.text_field :associated_symptoms %>
+  </div>
+  <div class="field">
+    <%= f.label :treatment %><br />
+    <%= f.text_field :treatment %>
+  </div>
+  <div class="field">
+    <%= f.label :similar_episodes %><br />
+    <%= f.check_box :similar_episodes %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br />
+    <%= f.text_field :notes %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

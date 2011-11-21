@@ -5,3 +5,10 @@ Factory.define(:user) do |u|
   u.email 'user@test.com'
   u.password 'please'
 end
+
+Factory.define(:headache) do |h|
+  h.user_id 1
+  h.onset_date DateTime.new
+  
+  h.intensity 7
+end

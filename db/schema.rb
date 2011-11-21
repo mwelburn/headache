@@ -11,7 +11,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111115041811) do
+ActiveRecord::Schema.define(:version => 20111121041209) do
+
+  create_table "headaches", :force => true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "onset_time"
+    t.time     "length"
+    t.string   "cause"
+    t.string   "existing_illness"
+    t.integer  "intensity"
+    t.string   "location"
+    t.string   "course"
+    t.string   "mitigating_factors"
+    t.string   "quality"
+    t.string   "associated_symptoms"
+    t.string   "treatment"
+    t.boolean  "similar_episodes"
+    t.string   "notes"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false

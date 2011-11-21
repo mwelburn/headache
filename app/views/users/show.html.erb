@@ -1,1 +1,10 @@
 <p>User: <%= @user.name %></p>
+
+<% for @user.all_headaches do |headache| %>
+    <li>
+      Onset Date: <%= headache.onset_date %>
+      Length: <%= headache.length %>
+      <br/>
+      <% link_to "Edit", edit_headache_path(:id => headache.id) %>
+    </li>
+<% end %>
