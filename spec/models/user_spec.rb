@@ -105,4 +105,34 @@ describe User do
 
   end
 
+  describe "add headache" do
+
+    before(:each) do
+      @user = User.create!(@attr)
+    end
+
+    it "should be able to add a headache" do
+      pending("Implement this")
+    end
+
+  end
+
+  describe "remove headache" do
+
+    before(:each) do
+      @user = User.create!(@attr)
+
+      #TODO - create two headaches
+    end
+
+    it "should be able to remove a headache" do
+      pending("Implement this")
+    end
+
+    it "should be able to remove all headaches" do
+      pending("Implement this")
+    end
+
+  end
+
 end
