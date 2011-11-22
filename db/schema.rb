@@ -11,30 +11,43 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111121041209) do
+ActiveRecord::Schema.define(:version => 20111122014809) do
 
-  create_table "headaches", :force => true do |t|
-    t.integer  "user_id"
+  create_table "causes", :force => true do |t|
+    t.string   "description"
+    t.boolean  "is_active",   :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "onset_time"
+  end
+
+  create_table "headaches", :force => true do |t|
+    t.integer  "user_id",                                                :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "onset_time",          :default => '2011-11-22 02:20:55'
     t.time     "length"
-    t.string   "cause"
-    t.string   "existing_illness"
     t.integer  "intensity"
-    t.string   "location"
+    t.boolean  "similar_episodes"
+    t.string   "notes"
+    t.string   "cause_id"
+    t.string   "existing_illness"
+    t.string   "location_on_head"
     t.string   "course"
     t.string   "mitigating_factors"
     t.string   "quality"
     t.string   "associated_symptoms"
     t.string   "treatment"
-    t.boolean  "similar_episodes"
-    t.string   "notes"
+    t.boolean  "is_active",           :default => true
+  end
+
+  create_table "headaches_causes", :id => false, :force => true do |t|
+    t.integer "headache_id"
+    t.integer "cause_id"
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                                 :default => "", :null => false
-    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
+    t.string   "email",                                 :default => "",   :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "",   :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -46,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20111121041209) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.boolean  "is_active",                             :default => true
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

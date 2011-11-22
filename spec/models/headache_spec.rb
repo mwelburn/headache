@@ -22,24 +22,193 @@ describe Headache do
     Headache.create!(@attr)
   end
 
-  it "should require an intensity" do
-    no_intensity_headache = Headache.new(@attr.merge(:intensity => ""))
-    no_intensity_headache.should_not be_valid
-  end
+  describe "start time" do
+    it "should accept valid start times" do
+      pending("implement this")
+    end
 
-  it "should accept valid intensity values" do
-    intensities = %w[1 10]
-    intensities.each do |intensity|
-      valid_headache = Headache.new(@attr.merge(:intensity => intensity))
-      valid_headache.should be_valid
+    it "should reject invalid start times" do
+      pending("implement this")
+    end
+
+    it "should default a blank start time to the current time" do
+      pending("implement this")
     end
   end
 
-  it "should reject invalid intensity values" do
-    intensities = %w[high low 0 11]
-    intensities.each do |intensity|
-      invalid_headache = Headache.new(@attr.merge(:intensity => intensity))
-      invalid_headache.should_not be_valid
+  describe "onset length" do
+    it "should accept valid onset length values" do
+      lengths = %w[1 1:30 0]
+      lengths.each do |length|
+        valid_headache = Headache.new(@attr.merge(:length => length))
+        valid_headache.should be_valid
+      end
+    end
+
+    it "should reject invalid onset length values" do
+      lengths = %w[-1 hours]
+      lengths.each do |length|
+        invalid_headache = Headache.new(@attr.merge(:length => length))
+        invalid_headache.should_not be_valid
+      end
+    end
+
+    it "should not require an onset length" do
+      no_onset_length_headache = Headache.new(@attr.merge(:length => ""))
+      no_onset_length_headache.should be_valid
+    end
+  end
+
+  describe "intensity" do
+    it "should require an intensity" do
+      no_intensity_headache = Headache.new(@attr.merge(:intensity => ""))
+      no_intensity_headache.should_not be_valid
+    end
+
+    it "should accept valid intensity values" do
+      intensities = %w[0 1 10]
+      intensities.each do |intensity|
+        valid_headache = Headache.new(@attr.merge(:intensity => intensity))
+        valid_headache.should be_valid
+      end
+    end
+
+    it "should reject invalid intensity values" do
+      intensities = %w[high low -1 11 5.0]
+      intensities.each do |intensity|
+        invalid_headache = Headache.new(@attr.merge(:intensity => intensity))
+        invalid_headache.should_not be_valid
+      end
+    end
+
+    describe "adding causes" do
+      before(:each) do
+        @cause_attr_1 = {
+          :description => "foobar1"
+        }
+        @cause1 = Cause.create!(@cause_attr_1)
+
+        @cause_attr_2 = {
+          :description => "foobar2"
+        }
+        @cause2 = Cause.create!(@cause_attr_2)
+      end
+
+      it "should not require a cause" do
+        valid_headache = Headache.new(@attr)
+        valid_headache.should be_valid
+      end
+
+      it "should accept a cause" do
+        valid_headache = Headache.new(@attr)
+        valid_headache.add_cause(@cause1)
+        assert_same(valid_headache.causes.size, 1)
+      end
+
+      it "should accept a cause by existing ID" do
+        pending("implement this")
+      end
+
+      it "should not accept a clause by nonexistent ID" do
+        pending("implement this")
+      end
+
+      it "should create a cause if given a nonexistent description" do
+        pending("implement this")
+      end
+
+      it "should not create a cause if given an existing description" do
+        pending("implement this")
+      end
+
+      it "should accept an cause by existing description" do
+        pending("implement this")
+      end
+
+      it "should allow multiple causes" do
+        valid_headache = Headache.new(@attr)
+        valid_headache.add_cause(@cause1)
+        valid_headache.add_cause(@cause2)
+        assert_same(valid_headache.causes.size, 2)
+      end
+
+      it "should not allow duplicate causes" do
+        valid_headache = Headache.new(@attr)
+        valid_headache.add_cause(@cause1)
+        valid_headache.add_cause(@cause1)
+        assert_same(valid_headache.causes.size, 1)
+      end
+    end
+
+    describe "removing causes" do
+      before(:each) do
+        valid_headache = Headache.create!(@attr)
+
+        @cause_attr_1 = {
+          :description => "foobar1"
+        }
+        @cause1 = Cause.create!(@cause_attr_1)
+
+        @cause_attr_2 = {
+          :description => "foobar2"
+        }
+        @cause2 = Cause.create!(@cause_attr_2)
+
+        valid_headache.add_cause(@cause1)
+        valid_headache.add_cause(@cause2)
+      end
+
+      it "should allow removal of a single cause" do
+        pending("implement this")
+      end
+
+      it "should allow adding of a single cause by ID" do
+        pending("implement this")
+      end
+
+      it "should allow adding of a single cause by valid description" do
+        pending("implement this")
+      end
+
+      it "should not allow adding of a single cause by invalid description" do
+        pending("implement this")
+      end
+
+      it "should allow removal of all causes" do
+        pending("implement this")
+      end
+
+      it "should allow removal of all causes when empty" do
+        pending("implement this")
+      end
+    end
+  end
+
+  describe "similar episodes" do
+    it "should require a similar episodes" do
+      pending("implement this")
+    end
+
+    it "should accept valid similar episodes" do
+      pending("implement this")
+    end
+
+    it "should reject invalid similar episodes" do
+      pending("implement this")
+    end
+  end
+
+  describe "notes" do
+    it "should not require notes" do
+      pending("implement this")
+    end
+
+    it "should accept notes" do
+      pending("implement this")
+    end
+
+    it "should escape html in the notes" do
+      pending("implement this")
     end
   end
 end

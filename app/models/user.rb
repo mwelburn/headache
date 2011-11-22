@@ -14,4 +14,8 @@ class User < ActiveRecord::Base
   def all_headaches
     Headache.find_all_by_user_id(current_user.id)
   end
+
+  def add_headache(headache)
+    self.headaches.build(:headache => headache)
+  end
 end

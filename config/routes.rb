@@ -4,6 +4,7 @@ HeadacheTracker::Application.routes.draw do
   root :to => 'home#index'
   resources :users, :only => :show
   resources :headaches, :except => :index
+  resources :causes
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,10 +1,10 @@
-<%= form_for(@headach) do |f| %>
-  <% if @headach.errors.any? %>
+<%= form_for(@headache) do |f| %>
+  <% if @headache.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@headach.errors.count, "error") %> prohibited this headach from being saved:</h2>
+      <h2><%= pluralize(@headache.errors.count, "error") %> prohibited this headache from being saved:</h2>
 
       <ul>
-      <% @headach.errors.full_messages.each do |msg| %>
+      <% @headache.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -32,16 +32,25 @@
     <%= f.time_select :length %>
   </div>
   <div class="field">
+    <%= f.label :intensity %><br />
+    <%= f.number_field :intensity %>
+  </div>
+  <div class="field">
+    <%= f.label :similar_episodes %><br />
+    <%= f.check_box :similar_episodes %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br />
+    <%= f.text_field :notes %>
+  </div>
+<!--
+  <div class="field">
     <%= f.label :cause %><br />
     <%= f.text_field :cause %>
   </div>
   <div class="field">
     <%= f.label :existing_illness %><br />
     <%= f.text_field :existing_illness %>
-  </div>
-  <div class="field">
-    <%= f.label :intensity %><br />
-    <%= f.number_field :intensity %>
   </div>
   <div class="field">
     <%= f.label :location %><br />
@@ -67,15 +76,8 @@
     <%= f.label :treatment %><br />
     <%= f.text_field :treatment %>
   </div>
-  <div class="field">
-    <%= f.label :similar_episodes %><br />
-    <%= f.check_box :similar_episodes %>
-  </div>
-  <div class="field">
-    <%= f.label :notes %><br />
-    <%= f.text_field :notes %>
-  </div>
-  <div class="actions">
+-->
+    <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>

@@ -23,31 +23,33 @@
     <th></th>
   </tr>
 
-<% @headaches.each do |headach| %>
+<% @headaches.each do |headache| %>
   <tr>
-    <td><%= headach.user_id %></td>
-    <td><%= headach.created_at %></td>
-    <td><%= headach.updated_at %></td>
-    <td><%= headach.onset_time %></td>
-    <td><%= headach.length %></td>
-    <td><%= headach.cause %></td>
-    <td><%= headach.existing_illness %></td>
-    <td><%= headach.intensity %></td>
-    <td><%= headach.location %></td>
-    <td><%= headach.course %></td>
-    <td><%= headach.mitigating_factors %></td>
-    <td><%= headach.quality %></td>
-    <td><%= headach.associated_symptoms %></td>
-    <td><%= headach.treatment %></td>
-    <td><%= headach.similar_episodes %></td>
-    <td><%= headach.notes %></td>
-    <td><%= link_to 'Show', headach %></td>
-    <td><%= link_to 'Edit', edit_headach_path(headach) %></td>
-    <td><%= link_to 'Destroy', headach, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= headache.user_id %></td>
+    <td><%= headache.created_at %></td>
+    <td><%= headache.updated_at %></td>
+    <td><%= headache.onset_time %></td>
+    <td><%= headache.length %></td>
+    <td><%= headache.intensity %></td>
+    <td><%= headache.similar_episodes %></td>
+    <td><%= headache.notes %></td>
+<!--
+    <td><%= headache.cause %></td>
+    <td><%= headache.existing_illness %></td>
+    <td><%= headache.location %></td>
+    <td><%= headache.course %></td>
+    <td><%= headache.mitigating_factors %></td>
+    <td><%= headache.quality %></td>
+    <td><%= headache.associated_symptoms %></td>
+    <td><%= headache.treatment %></td>
+-->
+    <td><%= link_to 'Show', headache %></td>
+    <td><%= link_to 'Edit', edit_headache_path(headache) %></td>
+    <td><%= link_to 'Destroy', headache, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Headache', new_headach_path %>
+<%= link_to 'New Headache', new_headache_path %>
