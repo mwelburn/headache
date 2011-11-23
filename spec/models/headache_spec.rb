@@ -142,25 +142,75 @@ describe Headache do
         pending("implement this")
       end
 
-      it "should allow adding of a single cause by ID" do
-        pending("implement this")
-      end
-
-      it "should allow adding of a single cause by valid description" do
-        pending("implement this")
-      end
-
-      it "should not allow adding of a single cause by invalid description" do
-        pending("implement this")
-      end
-
       it "should allow removal of all causes" do
         pending("implement this")
       end
+    end
+  end
 
-      it "should allow removal of all causes when empty" do
-        pending("implement this")
-      end
+  describe "adding treatments" do
+    before(:each) do
+      @treatment_attr_1 = {
+        :description => "foobar1"
+      }
+      @treatment1 = Treatment.create!(@treatment_attr_1)
+
+      @treatment_attr_2 = {
+        :description => "foobar2"
+      }
+      @treatment2 = Treatment.create!(@treatment_attr_2)
+    end
+
+    it "should not require a treatment" do
+      valid_headache = Headache.new(@attr)
+      valid_headache.should be_valid
+    end
+
+    it "should accept a treatment" do
+      valid_headache = Headache.new(@attr)
+      valid_headache.add_treatment(@treatment1)
+      assert_same(valid_headache.treatments.size, 1)
+    end
+
+    it "should allow multiple treatments" do
+      valid_headache = Headache.new(@attr)
+      valid_headache.add_treatment(@treatment1)
+      valid_headache.add_treatment(@treatment2)
+      assert_same(valid_headache.treatments.size, 2)
+    end
+
+    it "should not allow duplicate treatments" do
+      valid_headache = Headache.new(@attr)
+      valid_headache.add_treatment(@treatment1)
+      valid_headache.add_treatment(@treatment1)
+      assert_same(valid_headache.treatments.size, 1)
+    end
+  end
+
+  describe "removing treatments" do
+    before(:each) do
+      valid_headache = Headache.create!(@attr)
+
+      @treatment_attr_1 = {
+        :description => "foobar1"
+      }
+      @treatment1 = Treatment.create!(@treatment_attr_1)
+
+      @treatment_attr_2 = {
+        :description => "foobar2"
+      }
+      @treatment2 = Treatment.create!(@treatment_attr_2)
+
+      valid_headache.add_treatment(@treatment1)
+      valid_headache.add_treatment(@treatment2)
+    end
+
+    it "should allow removal of a single treatment" do
+      pending("implement this")
+    end
+
+    it "should allow removal of all treatments" do
+      pending("implement this")
     end
   end
 
