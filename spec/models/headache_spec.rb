@@ -105,26 +105,6 @@ describe Headache do
         assert_same(valid_headache.causes.size, 1)
       end
 
-      it "should accept a cause by existing ID" do
-        pending("implement this")
-      end
-
-      it "should not accept a clause by nonexistent ID" do
-        pending("implement this")
-      end
-
-      it "should create a cause if given a nonexistent description" do
-        pending("implement this")
-      end
-
-      it "should not create a cause if given an existing description" do
-        pending("implement this")
-      end
-
-      it "should accept an cause by existing description" do
-        pending("implement this")
-      end
-
       it "should allow multiple causes" do
         valid_headache = Headache.new(@attr)
         valid_headache.add_cause(@cause1)
