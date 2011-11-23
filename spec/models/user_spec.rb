@@ -135,4 +135,16 @@ describe User do
 
   end
 
+  describe "cause" do
+
+    before(:each) do
+      @user = User.create!(@attr)
+    end
+
+    it "retrieves all previously used causes" do
+      pending("Implement this")
+    end
+
+  end
+
 end

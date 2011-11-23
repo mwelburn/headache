@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :is_active
 
   validates_presence_of :name
 
@@ -17,5 +17,9 @@ class User < ActiveRecord::Base
 
   def add_headache(headache)
     self.headaches.build(:headache => headache)
+  end
+
+  def previous_causes
+    self.headaches.causes.description
   end
 end

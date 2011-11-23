@@ -5,6 +5,8 @@ class Cause < ActiveRecord::Base
   validates_presence_of :description
   validates_uniqueness_of :description
 
+  attr_accessible :description, :is_active, :default
+
   def valid_description
     has_one_letter = self.description =~ /[a-zA-Z]/
     errors.add(:description, "must have at least one letter") unless (has_one_letter)

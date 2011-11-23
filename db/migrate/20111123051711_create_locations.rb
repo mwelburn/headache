@@ -1,15 +1,14 @@
-class CreateCauses < ActiveRecord::Migration
+class CreateLocations < ActiveRecord::Migration
   def self.up
-    create_table :causes do |t|
+    create_table :locations do |t|
       t.string :description
       t.boolean :is_active, :default => true
-      t.boolean :default, :default => false
 
       t.timestamps
     end
   end
 
   def self.down
-    drop_table :causes
+    drop_table :locations
   end
 end

@@ -1,4 +1,4 @@
-class CreateHeadacheCausesJoinTable < ActiveRecord::Migration
+class CreateHeadachesCausesJoinTable < ActiveRecord::Migration
   def self.up
     create_table :headaches_causes, :id => false do |t|
       t.integer :headache_id
